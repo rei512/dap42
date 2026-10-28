@@ -63,6 +63,13 @@ ifeq ($(TARGET),STM32F103)
 	DEFS               += -DDFU_AVAILABLE=0 -DPREFER_HID=0
 	ARCH                = STM32F1
 endif
+ifeq ($(TARGET),STM32F103-JIXINLU)
+	TARGET_COMMON_DIR  := ./stm32f103
+	TARGET_SPEC_DIR    := ./stm32f103/jixin-lu
+	LDSCRIPT           ?= ./stm32f103/stm32f103x8.ld
+	DEFS               += -DDFU_AVAILABLE=0 -DPREFER_HID=0
+	ARCH                = STM32F1
+endif
 ifeq ($(TARGET),STM32F103-HID)
 	TARGET_COMMON_DIR  := ./stm32f103
 	TARGET_SPEC_DIR    := ./stm32f103/stlinkv2-dongle
